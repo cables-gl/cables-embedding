@@ -10,5 +10,5 @@ npm i
 npm run examples
 ```
 
-then open `http://localhost:8080/` in yout browser
+then open `http://localhost:8080/` in your browser
 
