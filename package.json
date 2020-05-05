@@ -1,0 +1,22 @@
+{
+  "name": "cables-embedding",
+  "version": "1.0.0",
+  "description": "embedding cables into website examples",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "examples": "http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cables-gl/cables-embedding/issues"
+  },
+  "homepage": "https://github.com/cables-gl/cables-embedding#readme"
+}
