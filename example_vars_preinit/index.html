@@ -29,7 +29,7 @@
 <body>
 
     <h3>Initializing variables when loading</h3>
-    At load time the variable "participants" is set to new values in the CABLES.patch constructor:
+    At load time the variable array "participants" is set to new values in the CABLES.patch constructor:
     <br/><br/>
     <pre>
     CABLES.patch = new CABLES.Patch({
@@ -41,7 +41,7 @@
     });
     </pre>
     <br/><br/>
-    in the original patch the vables would be "hund,katze,maus" but on this page they are replaced with "peter,fritz,helmut" in the beginning.
+    in the original patch the values would be "hund,katze,maus" but on this page they are replaced with "peter,fritz,helmut" in the beginning.
     <br/><br/>
     open <a href="https://dev.cables.gl/edit/--KwYa">original patch</a>
     <br/><br/>
@@ -53,12 +53,7 @@
     <corelibs/>
 
     <script>
-        /**
-         * Called when there was a cables error.
-         * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
-         *                         when the browser does not support the used APIs
-         * @param {string} errMsg - The error message
-         */
+
         function showError(errId, errMsg) {
             alert('An error occured: ' + errId + ', ' + errMsg);
         }

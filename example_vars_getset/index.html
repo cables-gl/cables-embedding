@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vars GetSet</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta itemprop="name" content="new project">
+    <meta itemprop="description" content="made with cables">
+    <meta itemprop="image" content="screenshot.png">
+    <meta name="description" content="made with cables" />
+
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        canvas {
+            display: block;
+            position: absolute;
+        }
+        pre
+        {
+            background-color: #ddd;
+            padding:15px;
+            display:inline-block;
+        }
+
+        .value
+        {
+            background-color: #ddd;
+            padding:10px;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h2>Getting and Setting variable values</h2>
+
+    <h3>Setting variables from outside</h3>
+
+    Enter text to change variable value: <input id="myInput"/>
+    <br/><br/>
+    We listen to changes in the input field and set a variable then:
+    <br/><br/>
+    <pre>
+document.getElementById("myInput").addEventListener("input", // listen to input events from our input field element
+(e)=>
+{
+    CABLES.patch.setVarValue("myStringVar", e.target.value); // set the value of our variable when input has changed
+});
+    </pre>
+    <br/><br/>
+
+
+    <h3>Reacting from variables changes inside the patch</h3>
+
+    In our patch mouse coordinates are set to variables "mousePosX" and "mousePosY"
+    <br/>    
+    When those variable changes we want to receive the values and display them:
+    <br/><br/>
+    <span class="value" id="mousePosEleX"></span> / <span class="value" id="mousePosEleY"></span>
+    <br/><br/>
+    move your mouse over canvas to see changes.
+    <br/><br/>
+    <pre>
+const vy=CABLES.patch.getVar("mousePosY"); // get the variable object
+vy.addListener( // add a listener, which will be calles everytime the value changes
+    (v)=>
+    {
+        document.getElementById("mousePosEleY").innerHTML=v; // update html with new value
+    });
+
+    </pre>
+    <br/><br/>
+
+    open <a href="https://dev.cables.gl/edit/5ee8997f00b2362b5b235028">original patch</a>
+    <br/><br/>
+
+    <canvas id="glcanvas" width="800" height="600"></canvas>
+
+    <libs/>
+    <script type="text/javascript" src="js/patch.js" async></script>
+    <corelibs/>
+
+    <script>
+
+
+
+        function showError(errId, errMsg) {
+            alert('An error occured: ' + errId + ', ' + errMsg);
+        }
+
+        document.addEventListener('CABLES.jsLoaded', function(event) {
+            CABLES.patch = new CABLES.Patch({
+                patch: CABLES.exportedPatch,
+                prefixAssetPath: '',
+                glCanvasId: 'glcanvas',
+                glCanvasResizeToWindow: false,
+                onError: showError,
+                variables:
+                {
+                    "participants":["peter","fritz","helmut"]
+                }
+            });
+
+        document.getElementById("myInput").addEventListener("input", // listen to input events from our input field element
+            (e)=>
+            {
+                CABLES.patch.setVarValue("myStringVar", e.target.value); // set the value of our variable when input has changed
+            });
+
+            const vx=CABLES.patch.getVar("mousePosX");
+        vx.addListener(
+            (v)=>{
+                document.getElementById("mousePosEleX").innerHTML=v;
+            });
+
+        const vy=CABLES.patch.getVar("mousePosY");
+        vy.addListener(
+            (v)=>{
+                document.getElementById("mousePosEleY").innerHTML=v;
+            });
+
+
+        });
+    </script>
+</body>
+</html>
