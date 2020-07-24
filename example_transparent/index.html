@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>new project</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <meta itemprop="name" content="new project">
+    <meta itemprop="description" content="made with cables">
+    <meta itemprop="image" content="screenshot.png">
+    <meta name="description" content="made with cables" />
+
+    <style>
+        
+        body
+        {
+            background-image: linear-gradient(to right,#000, #f00);
+
+            color: #ccc;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+
+        canvas
+        {
+            display: block;
+        }
+
+        a
+        {
+            color:white;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <canvas id="glcanvas" width="640" height="360"></canvas>
+   
+    <br/><br/>
+    setting the patch to transparent
+
+    <br/><br/>
+    <a href="https://cables.gl/edit/6VC61e">the patch</a>
+
+    <pre>"canvas":{"alpha":true,"premultipliedAlpha":true}</pre>
+
+    <script type="text/javascript" src="patch.js" async></script>
+
+    <br/><br/>
+    you can even load a transparent patch in a transparent iframe:
+    <br/>
+    <br/>
+
+    <iframe src="iframecontent.html" style="border:2px solid blue;"></iframe>
+
+    <script>
+        /**
+         * Called when there was a cables error.
+         * @param {string} errId - ID of the error, e.g. 'NO_WEBGL' or 'NO_WEBAUDIO'
+         *                         when the browser does not support the used APIs
+         * @param {string} errMsg - The error message
+         */
+        function showError(errId, errMsg) {
+            alert('An error occured: ' + errId + ', ' + errMsg);
+        }
+
+        function patchInitialized() {
+            // You can now access the patch object (CABLES.patch), register variable watchers and so on
+        }
+
+        function patchFinishedLoading() {
+            // The patch is ready now, all assets have been loaded
+        }
+
+        document.addEventListener('CABLES.jsLoaded', function(event) {
+            CABLES.patch = new CABLES.Patch({
+                "patch": CABLES.exportedPatch,
+                "prefixAssetPath": '../../patch/',
+                "glCanvasId": 'glcanvas',
+                "glCanvasResizeToWindow": false,
+                "onError": showError,
+                "onPatchLoaded": patchInitialized,
+                "onFinishedLoading": patchFinishedLoading,
+                
+                "canvas":{"alpha":true,"premultipliedAlpha":true}
+            });
+        });
+    </script>
+</body>
+</html>
