@@ -1,7 +1,7 @@
 # embedding-examples
 embedding cables into website examples
 
-visit: cables-gl.github.io/cables-embedding/
+visit: [cables-gl.github.io/cables-embedding/](https://cables-gl.github.io/cables-embedding/)
 
 you can copy those examples to your webserver. 
 
