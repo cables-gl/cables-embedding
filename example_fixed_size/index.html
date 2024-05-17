@@ -37,7 +37,7 @@
     <br/><br/>
     canvas size set to 300 pixel widht and height
 
-    <script type="text/javascript" src="../../patch/js/patch.js" async></script>
+    <script type="text/javascript" src="../patch/js/patch.js" async></script>
 
     <script>
         /**
@@ -61,7 +61,7 @@
         document.addEventListener('CABLES.jsLoaded', function(event) {
             CABLES.patch = new CABLES.Patch({
                 patch: CABLES.exportedPatch,
-                prefixAssetPath: '../../patch/',
+                prefixAssetPath: '../patch/',
                 glCanvasId: 'glcanvas',
                 glCanvasResizeToWindow: false,
                 onError: showError,
