@@ -53,7 +53,7 @@
         <h3>long scrolling page example</h3>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi convallis sapien ac est convallis eleifend. Nullam elementum condimentum consequat. Nam hendrerit, sapien nec maximus egestas, tellus tellus euismod erat, elementum pulvinar ex nunc ut justo. Sed vulputate, diam egestas ultricies porta, libero felis posuere mi, in varius quam enim sit amet ligula. Nam accumsan eros vel ligula consequat, quis posuere tortor lacinia. Mauris sit amet aliquam magna. Fusce placerat nisl erat, sed tristique nisl vulputate eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer et purus eu augue accumsan commodo eget et enim. Maecenas mattis nisl nec convallis vestibulum. Curabitur elit diam, finibus in magna vitae, gravida cursus ante. Aenean at odio eleifend, maximus purus sodales, convallis ligula. Suspendisse maximus feugiat volutpat. Nullam sit amet libero placerat, varius enim a, facilisis tellus. Donec ac neque rutrum, cursus arcu eu, sollicitudin est. Etiam dapibus est eu finibus suscipit.<br/>
         <br/>
-        <img src="../../patch/screenshot.png" style="width:100%;"/>
+        <img src="../patch/screenshot.png" style="width:100%;"/>
         <br/><br/>
         <a href="https://cables.gl/edit/iZaNz7">clone this patch!</a>
         <br/><br/>
@@ -81,7 +81,7 @@
     </div>
 
 
-    <script type="text/javascript" src="../../patch/js/patch.js" async></script>
+    <script type="text/javascript" src="../patch/js/patch.js" async></script>
 
     <script>
         /**
@@ -105,7 +105,7 @@
         document.addEventListener('CABLES.jsLoaded', function(event) {
             CABLES.patch = new CABLES.Patch({
                 patch: CABLES.exportedPatch,
-                prefixAssetPath: '../../patch/',
+                prefixAssetPath: '../patch/',
                 glCanvasId: 'glcanvas',
                 glCanvasResizeToWindow: true,
                 onError: showError,
